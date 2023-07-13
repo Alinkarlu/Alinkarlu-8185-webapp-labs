@@ -26,3 +26,10 @@ h1 {
   padding: 10px;
   margin-bottom: 20px;
 }
+
+.make-everything-center {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
