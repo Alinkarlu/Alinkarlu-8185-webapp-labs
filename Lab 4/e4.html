@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COVID-19 Statistics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #007bff; /* Blue color for the heading */
+        }
+
+        h2 {
+            color: #ff5733; /* Orange color for heading 2 */
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        ul.circle-list {
+            list-style-type: circle;
+        }
+
+        ul.square-list {
+            list-style-type: square;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #dddddd; /* 1px solid border */
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2; /* Light gray background for table header */
+        }
+
+        td.new-cases {
+            text-align: right;
+            background-color: yellow; /* Yellow background for "New Cases" column */
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>COVID-19</h1>
+    <p>COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.The statistics taken from <a href="https://www.worldometers.info/coronavirus/" target="_blank">Worldometers</a> website for the first top three that has the most number of cases are shown in the section <a href="#statistics">Statistics</a></p>
+    <h2>Most common symptoms:</h2>
+    <ul class="circle-list">
+        <li>fever</li>
+        <li>dry cough</li>
+        <li>tiredness</li>
+    </ul>
+    <h2>Less common symptoms:</h2>
+    <ul class="square-list">
+        <li>aches and pains</li>
+        <li>sore throat</li>
+        <li>headache</li>
+        <li>loss of taste or smell</li>
+    </ul>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/aFPyYoGViZs" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <h2 id="statistics">COVID-19 Statistics</h2>
+    <table>
+        <tr>
+            <th>Order</th>
+            <th>Country</th>
+            <th>Total Cases</th>
+            <th class="new-cases">New Cases</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>World</td>
+            <td>22,043,483</td>
+            <td class="new-cases">+198,459</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>USA</td>
+            <td>5,612,027</td>
+            <td class="new-cases">+40,612</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Brazil</td>
+            <td>3,363,235</td>
+            <td class="new-cases">+23,038</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>India</td>
+            <td>2,701,604</td>
+            <td class="new-cases">+54,288</td>
+        </tr>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Navigation Bar</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: black;
+    }
+
+    .menu {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .menu li {
+      margin-right: 20px;
+    }
+
+    .menu li a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 10px;
+      background-color: black;
+    }
+
+    .menu li a:hover {
+      background-color: yellow;
+      color: black;
+    }
+
+    .menu-item.active a {
+      background-color: purple;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .unordered-list {
+      list-style-type: circle;
+    }
+
+    .roman-list {
+      list-style-type: lower-roman;
+    }
+
+    .unordered-heading {
+      border: 5px solid blue;
+      width: 200px;
+      height: 30px;
+      background-color: rgb(72, 152, 243);
+      padding: 5px;
+    }
+
+    .ordered-heading {
+      border: 5px solid green;
+      width: 200px;
+      height: 30px;
+      background-color: rgb(106, 255, 95);
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <ul class="menu">
+      <li class="active" onclick="toggleActive(this)"><a href="#">Unordered List</a></li>
+      <li onclick="toggleActive(this)"><a href="#">Ordered List</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <div id="unordered" class="visible">
+      <ul class="unordered-heading">This is an unordered list</ul>
+      <ul class="unordered-list">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+      </ul>
+    </div>
+
+    <div id="ordered" class="hidden">
+        <ul class="ordered-heading">This is an ordered ist</ul>
+      <ol class="roman-list">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const defaultNavItem = document.querySelector(".unordered-list-item");
+      defaultNavItem.classList.add("active");
+      defaultNavItem.querySelector("a").style.backgroundColor = "yellow"; 
+      const activeContentDiv = document.getElementById("unordered");
+      activeContentDiv.classList.add("visible");
+    });
+
+    function toggleActive(item) {
+      const menuItems = document.querySelectorAll(".menu li");
+      menuItems.forEach((menuItem) => {
+        menuItem.classList.remove("active");
+        menuItem.querySelector("a").style.backgroundColor = "black"; // Set the background color back to black for all menu items
+      });
+      item.classList.add("active");
+      item.querySelector("a").style.backgroundColor = "purple"; // Set the background color to purple for the active item
+
+      const contentDivs = document.querySelectorAll(".content div");
+      contentDivs.forEach((div) => {
+        div.classList.remove("visible");
+      });
+
+      const activeLinkId = item.innerText.toLowerCase().replace(" ", "-");
+      const activeContentDiv = document.getElementById(activeLinkId);
+      activeContentDiv.classList.add("visible");
+    }
+  </script>
+</body>
+</html>
