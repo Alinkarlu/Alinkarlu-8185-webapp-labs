@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Uppercase</title>
+</head>
+<body>
+    <script>
+        const chk_uppercase = (str) => {
+            if (str.length === 0) {
+                return "Empty string";
+            }
+
+            const firstChar = str[0];
+            if (firstChar === firstChar.toUpperCase()) {
+                return `${str} has the first letter as uppercase`;
+            } else {
+                return `${str} does not have the first letter as uppercase`;
+            }
+        };
+
+        window.onload = function() {
+            const output1 = chk_uppercase("Kku");
+            const output2 = chk_uppercase("kku");
+            alert(output1 + "\n" + output2);
+        };
+    </script>
+</body>
+</html>
