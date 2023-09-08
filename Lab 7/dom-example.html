@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple DOM example</title>
+  </head>
+  <body>
+    <section>
+      <img id="facultyImage" src="images/kku.jpg" 
+         alt="Khon Kaen University">
+      <p>Here we will add 
+        a link to the 
+        <a href="https://www.mozilla.org/">Mozilla homepage</a>
+      </p>
+    </section>
+
+    <script>
+        
+      const facultyImage = document.getElementById('facultyImage');
+      const linkToEngineeringPage = 'https://www.en.kku.ac.th';
+
+      facultyImage.addEventListener('click', function() {
+        window.location.href = linkToEngineeringPage;
+      });
+
+
+      document.title = 'KKU Engineering';
+      facultyImage.src = 'images/engineering.jpg';
+      facultyImage.style.width = '500px'; 
+      facultyImage.style.height = '300px';
+
+      const paragraphElement = document.querySelector('p');
+      if (paragraphElement) {
+        paragraphElement.remove();
+      }
+
+      const newElement = document.createElement('div');
+      newElement.textContent = 'We hope you enjoy learning';
+      newElement.style.color = 'white';
+      newElement.style.backgroundColor = 'black';
+      newElement.style.fontSize = '18px'; 
+      newElement.style.textAlign = 'center';
+      newElement.style.width = '500px';
+      newElement.style.height = '30px';
+
+      facultyImage.parentNode.appendChild(newElement);
+    </script>
+  </body>
+</html>
