@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+      let ulElement = document.querySelector('ul');
+      let inputElement = document.querySelector('input');
+      let addButton = document.querySelector('button');
+
+      addButton.addEventListener('click', addItem);
+
+      function addItem() {
+        let item = inputElement.value;
+        inputElement.value = '';
+        console.log(item);
+
+        let liElement = document.createElement('li');
+        liElement.textContent = item;
+        ulElement.appendChild(liElement);
+
+        let deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        liElement.appendChild(deleteButton);
+
+        deleteButton.addEventListener('click', function() {
+          ulElement.removeChild(liElement);
+          updateItemCount();
+        });
+
+        updateItemCount();
+      }
+
+      function updateItemCount() {
+        let itemCount = ulElement.children.length;
+        let spanElem = document.querySelector('.item-count');
+        
+        if (itemCount === 0) {
+          if (spanElem) {
+            document.body.removeChild(spanElem);
+          }
+        } else {
+          if (!spanElem) {
+            spanElem = document.createElement('span');
+            spanElem.className = 'item-count';
+            document.body.appendChild(spanElem);
+          }
+          spanElem.textContent = `The list has ${itemCount} item${itemCount !== 1 ? 's' : ''}`;
+          inputElement.focus();
+        }
+}
+
+    </script>
+  </body>
+</html>
