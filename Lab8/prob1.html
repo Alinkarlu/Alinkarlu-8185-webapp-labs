@@ -15,30 +15,34 @@
                 text-align: center;
                 padding: 10px;
                 position: relative;
+                background: rgb(148, 148, 148);
             }
             .moon {
                 position: absolute;
                 width: 30px;
                 height: 30px;
                 border-radius: 50%;
-                background: rgb(237, 237, 237);
+                background: yellow; 
+            }
+            .text {
+                color: green; 
             }
         </style>
     </head>
     <body>
-        <script>
-        
-            const planet = document.createElement('div'); 
-            planet.className = 'planet'; 
-            document.body.appendChild(planet);
+    <script>
+        const planetDiv = document.createElement('div');
+        planetDiv.classList.add('planet'); 
+        document.body.appendChild(planetDiv); 
 
-            const moon = document.createElement('div'); 
-            moon.className = 'moon'; 
-            planet.appendChild(moon); 
+        const moonDiv = document.createElement('div');
+        moonDiv.classList.add('moon'); 
+        planetDiv.appendChild(moonDiv);
 
-            planet.style.backgroundColor = 'white'; 
-            moon.style.backgroundColor = 'yellow'; 
-
-        </script>
+        const textDiv = document.createElement('div');
+        textDiv.textContent = "The planet and the moon"; 
+        textDiv.classList.add('text'); 
+        document.body.appendChild(textDiv); 
+    </script>
     </body>
 </html>
