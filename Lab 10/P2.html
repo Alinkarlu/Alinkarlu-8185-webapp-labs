@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .avatar-img {
+            border: 5px solid blue;
+            border-radius: 50%;
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><a id="github-link" target="_blank" href="https://github.com/Alinkarlu">Alinkar Lu</a></h1>
+        <img id="github-avatar" class="avatar-img" src="" alt="GitHub Avatar">
+    </div>
+
+    <script>
+        fetch('https://api.github.com/users/Alinkarlu')
+            .then(response => response.json())
+            .then(data => {
+                const avatarUrl = data.avatar_url;
+                const avatarElement = document.getElementById('github-avatar');
+                avatarElement.src = avatarUrl;
+            });
+    </script>
+</body>
+</html>
